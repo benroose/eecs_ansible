@@ -1,0 +1,124 @@
+{
+    "local_admins" : [
+	{
+	    "name": "roose",
+	    "fullname": "Ben Roose",
+	    "email": "ben.roose@wichita.edu",
+	    "ssh_authorized_keys": [
+		"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDTt2f7mrHku3m6h5h1J33+1DH3GOHWxbJ4YjOJFQ4GXcWLc+IJhBbpoyVpvCbYbS+XkHlaGNSSEeKJWRsOwRoyPv0hnXjrK44NPF1J4c90lnBPN3Maa409S9bZDj/D/P1EdGj4RMh2xr6Q0coUoScK6jEuH1cY+iPFGlnBp4M4CMqSPYaEinwVarZ0Sct8a8mq6KGaoxlxX4SNvF6cBo3hDgo4aNzfB1hnYzx1a1MgkDUOJwNxtZGXbszqnwDB67uPFaCmMi9EDDnqkfNsZ1AiBnhtvgIGMXr8GM5X0B1GJGFPibzQzIPE1igQsVjrb3BDVS5ASjlr3ko4178Vdux9 roose@general_use",
+				   ],
+	},
+    ],
+    "mywsu_admins" : [
+	{
+	    "name": "d693f574",
+	    "fullname": "Ben Roose",
+	    "email": "ben.roose@wichita.edu",
+	},
+    ],
+    "faculty" : [
+	{
+	    "name": "r588k227",
+	    "fullname": "Abu Asaduzzaman",
+	    "email": "abu.asaduzzaman@wichita.edu",
+	},
+	{
+	    "name": "d562g735",
+	    "fullname": "Adam Sweeney",
+	    "email": "adam.sweeney@wichita.edu",
+	},
+	{
+	    "name": "p892p939",
+	    "fullname": "Gergely Zaruba",
+	    "email": "gergely.zaruba@wichita.edu",
+	},
+	{
+	    "name": "p926w956",
+	    "fullname": "Hongsheng He",
+	    "email": "hongsheng.he@wichita.edu",
+	},
+	{
+	    "name": "b343g555",
+            "fullname": "Huabo Lu",
+            "email": "huabo.lu@wichita.edu",
+        },
+	{
+	    "name": "g836u949",
+	    "fullname": "Huzefa Kagdi",
+	    "email": "huzefa.kagdi@wichita.edu",
+	},
+	{
+	    "name": "m275p945",
+	    "fullname": "John Watkins",
+	    "email": "john.watkins@wichita.edu",
+	},
+	{
+	    "name": "p862d927",
+	    "fullname": "Kaushik Sinha",
+	    "email": "kaushik.sinha@wichita.edu",
+	},
+	{
+	    "name": "s969s378",
+	    "fullname": "Keenan Jackson",
+	    "email": "keenan.jackson@wichita.edu",
+	},
+	{
+	    "name": "m894s345",
+	    "fullname": "Prakash Ramanan",
+	    "email": "prakash.ramanan@wichita.edu",
+	},
+	{
+	    "name": "g272d536",
+	    "fullname": "Rajiv Bagai",
+	    "email": "rajiv.bagai@wichita.edu",
+	},
+	{
+	    "name": "n285v678",
+	    "fullname": "Remi Chou",
+	    "email": "remi.chou@wichita.edu",
+	},
+	{
+	    "name": "j237k972",
+	    "fullname": "Sergio Salinas Monroy",
+	    "email": "sergio.salinasmonroy@wichita.edu",
+	},
+	{
+	    "name": "e645c553",
+	    "fullname": "Vinod Namboodiri",
+	    "email": "vinod.namboodiri@wichita.edu",
+	},
+	{
+	    "name": "k386y647",
+	    "fullname": "John Hammond",
+	    "email": "john.hammond@wichita.edu",
+	    "_comment": "added from Math department to test cslab for MATH322",
+	},
+    ],
+    "adjuncts" : [
+	{
+	    "name": "g769z587",
+	    "fullname": "Joe Shobe",
+	    "email": "joe.shobe@wichita.edu",
+	},
+	{
+	    "name": "r286q987",
+	    "fullname": "Rena Hixon",
+	    "email": "e.hixon@wichita.edu",
+	},
+	{
+	    "name": "t682a328",
+	    "fullname": "Stephen Guhl",
+	    "email": "stephen.guhl@wichita.edu",
+	},
+	{
+	    "name": "p377z922",
+	    "fullname": "Omid Keivani",
+	    "email": "oxkeivani@shockers.wichita.edu",
+	    "_comment": "Dr. Sinha researcher remote accessing jb-258-3143-lab11 workstation",
+	},
+    ],
+    "graders" : [
+    ],
+    "revoked" : [
+    ],
+}

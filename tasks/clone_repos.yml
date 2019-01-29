@@ -1,0 +1,9 @@
+---
+# clone any repos as part of user setup
+- name: Ensure repositories are cloned locally.
+  git:
+    repo: "{{ repo_user_link }}/{{ item }}.git"
+    dest: "{{ repo_local_destination }}/{{ item }}"
+    accept_hostkey: "{{ repo_accept_hostkey }}"
+  become: no
+  with_items: "{{ repos_to_clone }}"

@@ -1,0 +1,105 @@
+---
+
+# SYSTEM SUB-TASKS TO RUN
+rhss_subscribe: no
+install_software: no
+install_custom_certs: no
+configure_users: no
+configure_sudoers: no
+configure_ansible: no
+
+# USER HOME SUB-TASKS TO RUN
+configure_dotfiles: no
+configure_ssh_client: no
+generate_ssh_keys: yes
+clone_repos: no
+
+configure_terminal: no
+
+#################
+
+# SYSTEM TASK SPECIFIC VARS
+# software installation
+installation_packages:
+  - git
+  - curl
+  - wget
+  - tmux
+  - screen
+  - python
+  - python-ceilometerclient
+  - python-cinderclient
+  - python-glanceclient
+  - python-heatclient
+  - python-keystoneclient
+  - python-neutronclient
+  - python-novaclient
+  - python-swiftclient
+  - python-openstackclient
+  - ansible
+
+# Red Hat Satellite subscription registration vars
+rhss_server_fqdn: https://rhss.wichita.edu
+rhss_org: "wsu_eecs"
+rhss_activationkey: "RHEL 7 OpenStack Test Servers"
+rhss_autosubscribe: true
+# loc: eecs_datacenter
+# hostgroup: false
+# updatehost: true
+
+
+# users global vars
+primary_group: users
+sudo_group: wheel
+login_shell: /bin/bash
+
+# custom ca certificate vars
+ca_path_debian: /usr/local/share/ca-certificates
+ca_path:
+  RedHat:
+    6: /usr/local/share/ca-certificates
+    7: /etc/pki/ca-trust/source/anchors
+  Debian:
+    7: '{{ ca_path_debian }}'
+    8: '{{ ca_path_debian }}'
+
+
+#################
+
+# USER HOME TASK SPECIFIC VARS
+downloads: ~/.ansible-downloads/
+
+# User configuration dotfiles in remote git repository
+dotfiles_repo: https://github.com/benroose/dotfiles.git
+dotfiles_repo_accept_hostkey: yes
+dotfiles_repo_local_destination: ~/repositories/dotfiles
+dotfiles_files:
+  - .bashrc
+  - .emacs
+  - .emacs.d/modes
+  - .gitconfig
+  - .gitignore
+  - .ssh/config
+  - .tmux.conf
+
+# SSH configuration and key generation
+ssh_local_path: ~/.ssh
+ssh_config_filename: config
+ssh_config_template: templates/ssh_config.j2
+ssh_passphrase_file: files/ssh_passphrase.yml
+ssh_keys:
+  - id_rsa
+  - git_rsa
+
+
+# Additional git repositories to clone locally
+repo_user_link: https://github.com/benroose
+repo_accept_hostkey: yes
+repo_local_destination: ~/repositories/
+repos_to_clone:
+  - eecs_ansible
+  - eecs_openstack_heat
+
+
+# Glob pattern to ansible task files to run after all other tasks are finished.
+post_provision_tasks: []

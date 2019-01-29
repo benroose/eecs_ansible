@@ -1,0 +1,25 @@
+---
+- name:  Include user vars from external json file (try to be cross-compatible with older CFEngine policy code)
+  include_vars:
+    file: files/persistent_users.json
+    # name: persistent_users
+
+- name:  create local admin users from external persistent_users file
+  user:
+    state: present
+    name: "{{ item.name }}"
+    comment: "{{ item.fullname }}"
+    group: "{{ primary_group }}"
+    groups: "{{ sudo_group  }}"
+    shell: "{{ login_shell }}"
+    with_items: 
+      - "{{ local_admins }}"
+
+- name: Set local admin users ssh authorized_keys file with keys from external file
+  authorized_key:
+    state: present
+    user: "{{ item.0.name }}"
+    key: "{{item.1 }}"
+    with_subelements:
+      - "{{ local_admins }}"
+      - ssh_authorized_keys

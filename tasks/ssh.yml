@@ -1,0 +1,39 @@
+---
+
+# OpenSSH client configuration
+- name: Expand ssh client configuration for user.
+  template:
+    src: "{{ ssh_config_template }}"
+    dest: "{{ ssh_local_path }}/{{ ssh_config_filename }}"
+    mode: 0400
+  when: configure_ssh_client
+
+###########
+
+
+# OpenSSH private/public key generation
+- name: Include ssh_passphrase file defined by user!
+  include_vars:
+    file: "{{ ssh_passphrase_file }}"
+    # name: "ssh_passphrase"
+  when: generate_ssh_keys
+
+- name: generate new local SSH private keys for user
+  openssl_privatekey:
+    path: "{{ ssh_local_path }}/{{ item }}"
+    passphrase: "{{ ssh_passphrase }}"
+    cipher: aes256
+  become: no
+  with_items: "{{ ssh_keys }}"
+  when: generate_ssh_keys
+
+- name: generate new local SSH public keys for user
+  openssl_publickey:
+    path: "{{ ssh_local_path }}/{{ item }}.pub"
+    privatekey_path: "{{ ssh_local_path }}/{{ item }}"
+    privatekey_passphrase: "{{ ssh_passphrase }}"
+    format: OpenSSH
+  become: no
+  with_items: "{{ ssh_keys }}"
+  when: generate_ssh_keys
+

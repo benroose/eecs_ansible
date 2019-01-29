@@ -1,0 +1,8 @@
+---
+- name: Register host with Red Hat Satellite subscription repositories
+  redhat_subscription:
+    state: present
+    server_hostname: "{{ rhss_server_fqdn }}"
+    org_id: "{{ rhss_org }}"
+    activationkey: "{{ rhss_activationkey }}"
+    autosubscribe: "{{ rhss_autosubscribe }}"
