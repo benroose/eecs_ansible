@@ -1,0 +1,56 @@
+---
+# install and configure packages to be a full OpenStack CLI client
+    
+- name: install the epel rpm from a remote repo
+  yum:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    state: present
+  become: yes
+
+- name: install ansible and openstack client packages
+  yum: 
+    name:
+      - git
+      - ansible
+      # - gcc
+      # - gcc-c++
+      # - libffi-devel
+      # - openssl-devel
+      # - python-devel
+      - python
+      - python-virtualenv
+      - python-pip
+      - python-ceilometerclient
+      - python-cinderclient
+      - python-glanceclient
+      - python-heatclient
+      - python-keystoneclient
+      - python-neutronclient
+      - python-novaclient
+      - python-swiftclient
+      - python-openstackclient
+      - python-openstacksdk
+    state: latest
+  become: yes
+
+- name: make sure pip is latest
+  pip:
+    name: pip
+    state: latest
+  become: yes
+
+- name: make sure setuptools is latest
+  pip:
+    name: setuptools
+    state: latest
+  become: yes
+
+- name: install shade
+  pip:
+    name: shade
+    version: 1.27.1
+    extra_args: "-Iv"
+  become: yes
+
+- name: add openstack overcloud SSL certificates
+  include_tasks: tasks/ca-cert.yml

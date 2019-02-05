@@ -10,9 +10,29 @@
     state: directory
   become: yes
 
+- name: Ensure /tmp/ansible_cache directory exists for jsonfile caching.
+  file:
+    path: /tmp/ansible_cache
+    state: directory
+  become: no
+
 - name: Symlink /usr/local/etc/ansible to /etc/ansible.
   file:
     src: /etc/ansible
     path: /usr/local/etc/ansible
     state: link
   become: yes
+
+# - name: backup default hosts file
+#   copy:
+#     src: /etc/ansible/hosts
+#     dest: /etc/ansible/hosts.backup
+#   become: yes
+
+# - name: replace static hosts with openstack dynamic inventory script
+#   get_url:
+#     url: https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/openstack_inventory.py
+#     dest: /etc/ansible/hosts
+#     force: yes
+#     mode: 0555
+#   become: yes

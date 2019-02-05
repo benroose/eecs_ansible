@@ -3,15 +3,15 @@
 # SYSTEM SUB-TASKS TO RUN
 rhss_subscribe: no
 install_software: no
-install_custom_certs: no
 configure_users: no
 configure_sudoers: no
 configure_ansible: no
+install_openstack_client: no
 
 # USER HOME SUB-TASKS TO RUN
-configure_dotfiles: no
+configure_dotfiles: yes
 configure_ssh_client: no
-generate_ssh_keys: yes
+generate_ssh_keys: no
 clone_repos: no
 
 configure_terminal: no
@@ -26,16 +26,6 @@ installation_packages:
   - wget
   - tmux
   - screen
-  - python
-  - python-ceilometerclient
-  - python-cinderclient
-  - python-glanceclient
-  - python-heatclient
-  - python-keystoneclient
-  - python-neutronclient
-  - python-novaclient
-  - python-swiftclient
-  - python-openstackclient
   - ansible
 
 # Red Hat Satellite subscription registration vars
@@ -74,6 +64,7 @@ dotfiles_repo: https://github.com/benroose/dotfiles.git
 dotfiles_repo_accept_hostkey: yes
 dotfiles_repo_local_destination: ~/repositories/dotfiles
 dotfiles_files:
+  - .ansible.cfg
   - .bashrc
   - .emacs
   - .emacs.d/modes

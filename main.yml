@@ -35,9 +35,6 @@
     - include_tasks: tasks/software.yml
       when: install_software
 
-    - include_tasks: tasks/ca-cert.yml
-      when: install_custom_certs
-
     - include_tasks: tasks/users.yml
       when: configure_users
 
@@ -46,6 +43,9 @@
 
     - include_tasks: tasks/ansible-setup.yml
       when: configure_ansible
+
+    - include_tasks: tasks/openstack_client.yml
+      when: install_openstack_client
 
     ## USER TASKS
     - include_tasks: tasks/ssh.yml
