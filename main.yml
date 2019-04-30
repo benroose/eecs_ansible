@@ -64,6 +64,12 @@
     # - include_tasks: tasks/extra-packages.yml
     #   tags: ['extra-packages']
 
+    - name: create .emacs.d directory
+      file:
+        path: ~/.emacs.d
+        state: directory
+      when: configure_dotfiles
+
     - name: Run configured post-provision ansible task files.
       include_tasks: "{{ outer_item }}"
       loop_control:
